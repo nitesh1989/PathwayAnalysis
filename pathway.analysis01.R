@@ -83,13 +83,40 @@ intersectPathways(dataSet,dataName,length.DMR,savePath)
 
 
 # Function calls on Feb 21st.
+
+##############################################
+# TCGA - LUAD function call
+##############################################
+
+
 dir.create("~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUAD/pathways")
 dataSet="~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUAD/11_bumps.csv";dataName="LUAD";length.DMR=3;savePath = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUAD/pathways/"
 intersectPathways(dataSet,dataName,length.DMR,savePath)
+
+
+##############################################
+# TCGA - LUSC function call
+##############################################
 
 
 dir.create("~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC/pathways")
 dataSet="~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC/11_bumps.csv";dataName="LUSC";length.DMR=3;savePath = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC/pathways/"
 intersectPathways(dataSet,dataName,length.DMR,savePath)
 
+
+##############################################
+# Combined LUNG CANCER = union(LUAD + LUSC) function call
+##############################################
+
+dir.create("~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC_LUAD_Combined/pathways")
+dataSet="~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC_LUAD_Combined/bumps_combined_LUAD_LUSC.csv";dataName="combined_LU";length.DMR=3;savePath = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC_LUAD_Combined/pathways/"
+intersectPathways(dataSet,dataName,length.DMR,savePath)
+
+
+dir.create("~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC_LUAD_Combined/pathways")
+dataSet="~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC_LUAD_Combined/bumps_ind_luad.csv";dataName="ind_LUAD";length.DMR=3;savePath = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC_LUAD_Combined/pathways/"
+intersectPathways(dataSet,dataName,length.DMR,savePath)
+
+dataSet="~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC_LUAD_Combined/bumps_ind_lusc.csv";dataName="ind_LUSC";length.DMR=3;savePath = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC_LUAD_Combined/pathways/"
+intersectPathways(dataSet,dataName,length.DMR,savePath)
 

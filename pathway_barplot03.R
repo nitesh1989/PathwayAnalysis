@@ -160,6 +160,9 @@ parent_change = collect.pathways(status = "H460_parent",path = "~/TestRun/ShyamB
 make.plot(parent_change,"H460 Parent pathway-gene frequency barplot")
 ggsave(file = "~/TestRun/ShyamBiswal/circos_plot_test/collected_pathways/h460parent_pathways.png",width = 25,height = 12)
 
+
+
+# Function call on feb 21st
 ################################################################################
 # LUSC bar plot AFTER Jan30 2014.
 ################################################################################
@@ -180,4 +183,26 @@ luad = luad[luad$L>10,]
 luad = luad[,c("name","description","pathway")]
 make.plot(luad,"Lung Cancer Adenocarcinoma pathway-gene frequency barplot")
 ggsave(file = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUAD/LUAD_pathwayBarplot_L_over_10.png",width = 25,height = 15)
+
+################################################################################
+# LUAD + LUSC bar plot AFTER Jan30 2014.
+################################################################################
+
+comb = collect.pathways(status = "combined_LU",path = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC_LUAD_Combined/pathways")
+comb = comb[comb$L>10,]
+comb = comb[,c("name","description","pathway")]
+make.plot(comb,"Lung Cancer Adenocarcinoma union Lung Cancer Squamous pathway-gene frequency barplot")
+ggsave(file = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC_LUAD_Combined/LUSC_LUAD_pathwayBarplot.png",width = 25,height = 15)
+
+
+ind_luad = collect.pathways(status = "ind_LUAD",path = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC_LUAD_Combined/pathways/ind_LUAD")
+ind_luad = (ind_luad[ind_luad$L>10,])[,c("name","description","pathway")]
+make.plot(ind_luad,"Independent LUAD pathway-gene frequency barplot")
+ggsave(file = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC_LUAD_Combined/ind_LUAD.png",width = 25,height = 15)
+
+
+ind_lusc = collect.pathways(status = "ind_LUSC",path = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC_LUAD_Combined/pathways/ind_LUSC")
+ind_lusc = (ind_lusc[ind_lusc$L>10,])[,c("name","description","pathway")]
+make.plot(ind_lusc,"Independent LUSC pathway-gene frequency barplot")
+ggsave(file = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC_LUAD_Combined/ind_LUSC.png",width = 25,height = 15)
 
