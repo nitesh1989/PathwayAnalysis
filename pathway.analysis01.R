@@ -80,3 +80,16 @@ intersectPathways(dataSet="~/TestRun/TCGA_Data_Analysis/stomach/STAD_bumps.rda",
 dataSet="~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/BLCA/11_bumps.csv";dataName="BLCA";length.DMR=3;savePath = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/BLCA/"
 intersectPathways(dataSet,dataName,length.DMR,savePath)
 
+
+
+# Function calls on Feb 21st.
+dir.create("~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUAD/pathways")
+dataSet="~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUAD/11_bumps.csv";dataName="LUAD";length.DMR=3;savePath = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUAD/pathways/"
+intersectPathways(dataSet,dataName,length.DMR,savePath)
+
+
+dir.create("~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC/pathways")
+dataSet="~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC/11_bumps.csv";dataName="LUSC";length.DMR=3;savePath = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC/pathways/"
+intersectPathways(dataSet,dataName,length.DMR,savePath)
+
+

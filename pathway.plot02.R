@@ -3,37 +3,42 @@
 # Make plots for DMR for pathway analysis
 ##################################################################################
 
-setwd("~/Google Drive/Deliverables/Gastric_Cancer_Pathway_Analysis/1_25_2104/pathwayPlots")
+#setwd("~/Google Drive/Deliverables/Gastric_Cancer_Pathway_Analysis/1_25_2104/pathwayPlots")
+
 #######################
 # Load the required files
 ####################### 
 # data.sources = list.files("AllGastritis_vs_Cancer_pathways",pattern="*.rda",full.names=T)
 # sapply(data.sources,load,.GlobalEnv)
 
-source("FUNCTIONS_2012.R")
+
+
+source("../../HNSCC_Local/FUNCTIONS_2012.R")
 
 #Model Matrix
 
 
-library(charm)
+# library(charm)
 library(minfi)
 library(limma)
+
+
 
 
 #Path here is path to file.
 pathwayPlot = function(path,T1,T2) {
     files.to.plot = list.files(path,pattern = ".csv",full.names=T)    
-    pd=pData(object)
-    keep=pd$Phenotype%in%c(T1,T2)
-    tt=factor(pd$Phenotype[keep],c(T1,T2))
-    X=model.matrix(~tt)
-    design=model.matrix(~tt)
-    pos = start(object)
-    
+#     pd=pData(object)
+#     keep=pd$Phenotype%in%c(T1,T2)
+#     tt=factor(pd$Phenotype[keep],c(T1,T2))
+#     X=model.matrix(~tt)
+#     design=model.matrix(~tt)
+#     pos = start(object)
+#     
     
     
     for (i in 1:length(files.to.plot)) { 
-        #         i=1
+#                 i=1
         tab = read.csv(files.to.plot[i])        
         if (nrow(tab) == 1){
             next;
@@ -72,7 +77,7 @@ pathwayPlot = function(path,T1,T2) {
     
 }
 
-
+getwd()
 
 
 # Function call with Cancer
@@ -114,3 +119,43 @@ pos = start(object)
 
 mypath = "Gastritis_vs_Misgastritis_pathways"
 pathwayPlot(mypath,"gastritis","mis_gastritis")
+
+
+###############################################################################
+
+#Function call 5
+data.sources = list.files("~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC/",pattern="*.rda",full.names=T)
+sapply(data.sources,load,.GlobalEnv)
+#Model Matrix
+pd=pData(object)
+T1="normal";T2="cancer"
+keep=pd$phenotype%in%c(T1,T2)
+tt=factor(pd$phenotype[keep],c(T1,T2))
+X=model.matrix(~tt)
+design=model.matrix(~tt)
+pos = start(object)
+
+mypath = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC/pathways"
+path = mypath
+pathwayPlot(mypath,T1,T2)
+
+
+
+
+#Function call 6
+data.sources = list.files("~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUAD/",pattern="*.rda",full.names=T)
+sapply(data.sources,load,.GlobalEnv)
+#Model Matrix
+pd=pData(object)
+T1="normal";T2="cancer"
+keep=pd$phenotype%in%c(T1,T2)
+tt=factor(pd$phenotype[keep],c(T1,T2))
+X=model.matrix(~tt)
+design=model.matrix(~tt)
+pos = start(object)
+
+mypath = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUAD/pathways"
+path = mypath
+pathwayPlot(mypath,T1,T2)
+
+ 

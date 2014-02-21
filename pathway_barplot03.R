@@ -160,5 +160,24 @@ parent_change = collect.pathways(status = "H460_parent",path = "~/TestRun/ShyamB
 make.plot(parent_change,"H460 Parent pathway-gene frequency barplot")
 ggsave(file = "~/TestRun/ShyamBiswal/circos_plot_test/collected_pathways/h460parent_pathways.png",width = 25,height = 12)
 
+################################################################################
+# LUSC bar plot AFTER Jan30 2014.
+################################################################################
 
+lusc = collect.pathways(status = "LUSC",path = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSc/pathways")
+lusc = lusc[lusc$L>10,]
+lusc = lusc[,c("name","description","pathway")]
+make.plot(lusc,"Lung Cancer Squamous Cell Carcinoma pathway-gene frequency barplot")
+ggsave(file = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC/LUSC_pathwayBarplot_L_over_10.png",width = 25,height = 15)
+
+
+################################################################################
+# LUAD bar plot AFTER Jan30 2014.
+################################################################################
+
+luad = collect.pathways(status = "LUAD",path = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUAD/pathways")
+luad = luad[luad$L>10,]
+luad = luad[,c("name","description","pathway")]
+make.plot(luad,"Lung Cancer Adenocarcinoma pathway-gene frequency barplot")
+ggsave(file = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUAD/LUAD_pathwayBarplot_L_over_10.png",width = 25,height = 15)
 
