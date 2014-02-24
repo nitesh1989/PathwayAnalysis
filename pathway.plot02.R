@@ -158,4 +158,71 @@ mypath = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUAD/pathwa
 path = mypath
 pathwayPlot(mypath,T1,T2)
 
- 
+
+
+###############################################################################
+# TCGA data set populate
+# Feb 24th 2014
+###############################################################################
+
+
+# BLCA
+
+data.sources = list.files("~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/BLCA/",pattern="*.rda",full.names=T)
+sapply(data.sources,load,.GlobalEnv)
+#Model Matrix
+pd=pData(object)
+T1="normal";T2="cancer"
+keep=pd$phenotype%in%c(T1,T2)
+tt=factor(pd$phenotype[keep],c(T1,T2))
+X=model.matrix(~tt)
+design=model.matrix(~tt)
+pos = start(object)
+
+mypath = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/BLCA/pathways"
+path = mypath
+pathwayPlot(mypath,T1,T2)
+
+rm(object,design,tab,x,M)
+
+# CESC
+
+data.sources = list.files("~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/CESC/",pattern="*.rda",full.names=T)
+sapply(data.sources,load,.GlobalEnv)
+#Model Matrix
+pd=pData(object)
+T1="normal";T2="cancer"
+keep=pd$phenotype%in%c(T1,T2)
+tt=factor(pd$phenotype[keep],c(T1,T2))
+X=model.matrix(~tt)
+design=model.matrix(~tt)
+pos = start(object)
+
+mypath = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/CESC/pathways"
+path = mypath
+pathwayPlot(mypath,T1,T2)
+
+
+# Function calls in a loop
+
+name = c("TCHA")
+for (i in 1:length(name)){
+    
+    mypath = file.path("~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014",name)
+    
+    data.sources = list.files(mypath,pattern="*.rda",full.names=T)
+    sapply(data.sources,load,.GlobalEnv)
+    #Model Matrix
+    pd=pData(object)
+    T1="normal";T2="cancer"
+    keep=pd$phenotype%in%c(T1,T2)
+    tt=factor(pd$phenotype[keep],c(T1,T2))
+    X=model.matrix(~tt)
+    design=model.matrix(~tt)
+    pos = start(object)
+    
+    mypath = file.path(mypath,"pathways")
+    path = mypath
+    pathwayPlot(mypath,T1,T2)
+    gc()
+}

@@ -120,3 +120,24 @@ intersectPathways(dataSet,dataName,length.DMR,savePath)
 dataSet="~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC_LUAD_Combined/bumps_ind_lusc.csv";dataName="ind_LUSC";length.DMR=3;savePath = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC_LUAD_Combined/pathways/"
 intersectPathways(dataSet,dataName,length.DMR,savePath)
 
+##################################################
+# TCGA function calls Feb 24th 2014
+##################################################
+
+dataSet="~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/CESC/bumps_CESC.csv";dataName="CESC";length.DMR=3;savePath = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/CESC/pathways/"
+intersectPathways(dataSet,dataName,length.DMR,savePath)
+
+dataSet="~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LIHC/11_bumps.csv";dataName="LIHC";length.DMR=3;savePath = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LIHC/pathways/"
+intersectPathways(dataSet,dataName,length.DMR,savePath)
+
+#SKCM -- NO BUMPS
+dataSet="~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/SKCM/11_bumps.csv";dataName="SKCM";length.DMR=3;savePath = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/SKCM/pathways/"
+intersectPathways(dataSet,dataName,length.DMR,savePath)
+
+# TCHA
+name = "TCHA"
+name = "BRCA"
+dataSet=paste0("~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/",name,"/11_bumps.csv");dataName=name;length.DMR=3;savePath = paste0("~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/",name,"/pathways/")
+intersectPathways(dataSet,dataName,length.DMR,savePath)
+
+

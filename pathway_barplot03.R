@@ -206,3 +206,22 @@ ind_lusc = (ind_lusc[ind_lusc$L>10,])[,c("name","description","pathway")]
 make.plot(ind_lusc,"Independent LUSC pathway-gene frequency barplot")
 ggsave(file = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/LUSC_LUAD_Combined/ind_LUSC.png",width = 25,height = 15)
 
+
+# pathway plots for TCGA datasets on Feb 24th 2014
+
+x = collect.pathways(status = "BLCA",path = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/BLCA/pathways/")
+x = (x[x$L>10,])[,c("name","description","pathway")]
+make.plot(x,"BLCA pathway-gene frequency barplot")
+ggsave(file = "~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/BLCA/BLCA_barplot.png",width = 25,height = 15)
+
+
+name = c("BRCA")
+for(i in 1:length(name)){
+    x = collect.pathways(status = name[i],path = file.path("~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014",name[i],"pathways"))
+    #x = (x[x$L>10,])[,c("name","description","pathway")]
+    x = x[,c("name","description","pathway")]
+    make.plot(x,paste(name[i]," pathway-gene frequency barplot"))
+    ggsave(file = paste0("~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/"
+                         ,name[i],"/",name[i],"_barplot.png"),width = 25,height = 15)
+    
+}
