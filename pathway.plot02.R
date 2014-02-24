@@ -205,7 +205,7 @@ pathwayPlot(mypath,T1,T2)
 
 # Function calls in a loop
 
-name = c("TCHA")
+name = c("BRCA")
 for (i in 1:length(name)){
     
     mypath = file.path("~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014",name)

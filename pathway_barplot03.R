@@ -222,6 +222,6 @@ for(i in 1:length(name)){
     x = x[,c("name","description","pathway")]
     make.plot(x,paste(name[i]," pathway-gene frequency barplot"))
     ggsave(file = paste0("~/TestRun/TCGA_Data_Analysis/TCGA-Analysed-After-Jan302014/"
-                         ,name[i],"/",name[i],"_barplot.png"),width = 25,height = 15)
+                         ,name[i],"/",name[i],"_Lover10_barplot.png"),width = 25,height = 15)
     
 }
